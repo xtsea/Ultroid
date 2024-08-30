@@ -68,6 +68,7 @@ from . import (
     inline_mention,
     ultroid_bot,
     ultroid_cmd,
+    udB,
 )
 from ._inline import something
 
@@ -461,7 +462,8 @@ async def gcast(event):
             chat = x.entity.id
             if (
                 not keym.contains(chat)
-                and int(f"-100{str(chat)}") not in NOSPAM_CHAT
+                and int(f"-100{str(chat)}") not in NOSPAM_CHAT 
+                and int(f"-100{str(chat)}") not in udB.get_key("NOSPAM_CHAT")
                 and (
                     (
                         event.text[2:7] != "admin"
